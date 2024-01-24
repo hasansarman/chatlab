@@ -149,9 +149,12 @@ class Chat:
         assistant_view: AssistantMessageView = AssistantMessageView()
         function_view: Optional[AssistantFunctionCallView] = None
         finish_reason = None
-
+        old_choices=[]
         async for result in resp:  # Go through the results of the stream
             choices = result.choices
+            temp3 = [x for x in result.choices if x not in old_choices]
+            print(temp3)
+            old_choices = result.choices
 
             if len(choices) == 0:
                 logger.warning(f"Result has no choices: {result}")
