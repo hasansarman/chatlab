@@ -154,7 +154,7 @@ class Chat:
             choices = result.choices
             temp3 = [x for x in result.choices if x not in old_choices]
             for x in temp3:
-                print(x.content)
+                print(x.delta.content)
 
             #print(temp3.content)
             old_choices = result.choices
