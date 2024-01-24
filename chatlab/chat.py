@@ -153,7 +153,7 @@ class Chat:
         async for result in resp:  # Go through the results of the stream
             choices = result.choices
             temp3 = [x for x in result.choices if x not in old_choices]
-            print(temp3)
+            print(temp3.content)
             old_choices = result.choices
 
             if len(choices) == 0:
